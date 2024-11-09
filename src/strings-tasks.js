@@ -477,8 +477,22 @@ function extractEmails(str) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const alfabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const antiAlfabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const strArray = Array.from(str);
+  const answerArr = [];
+
+  strArray.forEach((e) => {
+    if (e === '!' || e === '?' || e === ' ') {
+      answerArr.push(e);
+    } else {
+      const count = alfabet.indexOf(e);
+
+      answerArr.push(antiAlfabet[count]);
+    }
+  });
+  return answerArr.join('');
 }
 
 /**
