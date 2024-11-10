@@ -265,9 +265,9 @@ function endsWith(str, substr) {
  *   formatTime(0, 0) => "00:00"
  */
 function formatTime(minutes, seconds) {
-  return `${minutes >= 10 ? '' : 0}${minutes}:${
-    seconds >= 10 ? '' : 0
-  }${seconds}`;
+  return `${minutes < 10 ? minutes.toString().padStart(2, '0') : minutes}:${
+    seconds < 10 ? seconds.toString().padStart(2, '0') : seconds
+  }`;
 }
 
 /**
