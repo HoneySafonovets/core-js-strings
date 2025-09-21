@@ -218,8 +218,11 @@ function sumOfCodes(str) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(str, substr) {
+  if (typeof str === 'string') {
+    return str.startsWith(substr);
+  }
+  return false;
 }
 
 /**
